@@ -1,0 +1,48 @@
+.prices {
+    padding: 50px 0;
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__unit {
+        width: 100%;
+        max-width: 270px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        
+        border:1px solid rgba(0, 0, 0, 0.103);
+    }
+    &__header {
+        background-color: #25333C;
+        color: #fff;
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+    }
+    &__img {
+        height: 4rem;
+        width: 4rem;
+        margin-top: 1rem;
+    }
+    &__suptitle {
+        font-size: 1rem;
+        margin-top: 0.4rem;
+    }
+    &__title {
+        font-size: 1.4rem;
+        font-weight: 500;
+        color:$accent;
+    }
+    &__text {
+        text-align: center;
+        padding: 0 .7rem;
+        font-size: .8rem;
+        font-weight: 300;
+    }
+    .button {
+        margin: 2rem 0;
+    }
+}
