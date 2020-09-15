@@ -1,14 +1,14 @@
 <header id="header" class="header">
     <div class="container">
-        <div id="header__wrapper" class="header__wrapper">
+        <div id="header__inner" class="header__inner">
             <a href="#"><img src="../../assets/img/logo.png" alt="" class="logo"></a>
-            <nav class="nav">
-                <a href="#advantages" class="nav__link"  >Преимущества </a>
-                <a href="#about" class="nav__link">Наша работа </a>
-                <a href="#prices" class="nav__link">Цены</a>
-                <a href="#work" class="nav__link">Схема работы</a>
-                <a href="#" class="nav__link">Отзывы</a>
-                <a href="#questions" class="nav__link">Контакты</a>
+            <nav id="nav" class="nav">
+                <a href="#" class="nav__link" data-scroll="#advantages" >Преимущества </a>
+                <a href="#" class="nav__link" data-scroll="#about">Наша работа </a>
+                <a href="#" class="nav__link" data-scroll="#prices">Цены</a>
+                <a href="#" class="nav__link" data-scroll="#work">Схема работы</a>
+                <a href="#" class="nav__link" data-scroll="# ">Отзывы</a>
+                <a href="#" class="nav__link" data-scroll="#questions">Контакты</a>
             </nav>
             <div class="header__contact">
                 <div class="header__contact--tel">Есть вопросы?
@@ -16,6 +16,13 @@
                 </div>
                 <button  class="button">ПЕРЕЗВОНИТЕ МНЕ</button>
             </div>
+
+            <button id="navToggle" class="burger" type="button">
+                <span class="burger__line">1</span>
+                <span class="burger__line">2</span>
+                <span class="burger__line">4</span>
+            </button>
+
         </div>
     </div>
 </header>

@@ -21,15 +21,15 @@
 <body>
 <header id="header" class="header">
     <div class="container">
-        <div id="header__wrapper" class="header__wrapper">
+        <div id="header__inner" class="header__inner">
             <a href="#"><img src="../../assets/img/logo.png" alt="" class="logo"></a>
-            <nav class="nav">
-                <a href="#advantages" class="nav__link"  >Преимущества </a>
-                <a href="#about" class="nav__link">Наша работа </a>
-                <a href="#prices" class="nav__link">Цены</a>
-                <a href="#work" class="nav__link">Схема работы</a>
-                <a href="#" class="nav__link">Отзывы</a>
-                <a href="#questions" class="nav__link">Контакты</a>
+            <nav id="nav" class="nav">
+                <a href="#" class="nav__link" data-scroll="#advantages" >Преимущества </a>
+                <a href="#" class="nav__link" data-scroll="#about">Наша работа </a>
+                <a href="#" class="nav__link" data-scroll="#prices">Цены</a>
+                <a href="#" class="nav__link" data-scroll="#work">Схема работы</a>
+                <a href="#" class="nav__link" data-scroll="# ">Отзывы</a>
+                <a href="#" class="nav__link" data-scroll="#questions">Контакты</a>
             </nav>
             <div class="header__contact">
                 <div class="header__contact--tel">Есть вопросы?
@@ -37,11 +37,18 @@
                 </div>
                 <button  class="button">ПЕРЕЗВОНИТЕ МНЕ</button>
             </div>
+
+            <button id="navToggle" class="burger" type="button">
+                <span class="burger__line">1</span>
+                <span class="burger__line">2</span>
+                <span class="burger__line">4</span>
+            </button>
+
         </div>
     </div>
 </header>
 
-<section id="promo" class="promo">
+<section id="promo" class="promo" data-scrollspy="promo">
     <div class="container">
         <div class="promo__wrapper">
             <div class="promo__subheader">
@@ -76,7 +83,7 @@
 </section> <!-- Promo -->
 
 
-<section id="advantages" class="advantages">
+<section id="advantages" class="advantages" data-scrollspy="advantages">
     <div class="container">
         <h3 class="title">ПРЕИМУЩЕСТВА РАБОТЫ С GLOBALPOPT</h3>
             <div class="advantages__wrapper">
@@ -152,7 +159,7 @@
     </div><!-- container -->
 </section> <!-- section -->
 
-<section id="about" class="about">
+<section id="about" class="about" data-scrollspy="about">
         <div class="container">
             <h3 class="title title--decor">НАША РАБОТА - БОЛЬШЕ ЧЕМ ПРОСТО ДОСТАВКА</h3>
             <h4 class="subtitle">Мы организуем перевозки из Китая - оперативно и надежно, с учетом особенностей груза
@@ -189,7 +196,7 @@
    </div><!-- container -->
 </div><!-- agent -->
 
-<section id="prices" class="prices">
+<section id="prices" class="prices"  data-scrollspy="prices">
     <div class="container">
         <h3 class="title title--decor">ЦЕНЫ НА ЛЮБОЙ ВАРИАНТ ДОСТАВКИ</h3>
         <h4 class="subtitle">Перевозки грузов на дальние расстояния без каких-либо ограничений.
@@ -254,7 +261,7 @@
     </div><!-- container -->
  </div><!-- agent -->
 
- <section id="work" class="work">
+ <section id="work" class="work"  data-scrollspy="work">
      <div class="container">
         <h3 class="title">СХЕМА РАБОТЫ С НАМИ</h3>
 
@@ -312,7 +319,7 @@
 
  <!-- <section class="slider"></section> -->
 
- <div id="questions" class="questions">
+ <div id="questions" class="questions"  data-scrollspy="questions">
      <div class="container">
          <div class="form__wrapper">
              <div class="form__header">

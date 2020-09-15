@@ -24,7 +24,7 @@ body {
 
 /* Base */
 @import 'base/variables';/* IMPORTANT; Has to go above everything else otherwise it will cause error */
-
+@import 'base/media';
 /* Blocks */
 @import 'blocks/promo';
 @import 'blocks/header';

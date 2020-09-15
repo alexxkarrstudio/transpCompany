@@ -1,23 +1,16 @@
-// Add/Remove class
-// $(window).scroll(function(){
-//     if ($(this).scrollTop() > 50) {
-//        $('#header').addClass('header--dark');
-//     } else {
-//        $('#header').removeClass('header--dark');
-//     }
-// });
-
+'use strict';
 
 // Smooth scroll: https://github.com/cferdinandi/smooth-scroll
 var scroll = new SmoothScroll('a[href*="#"]');
 
 let header = document.querySelector("#header");
-var testBtn = document.querySelector(".button");
-var navLink = document.querySelectorAll(".nav__link");
+let testBtn = document.querySelector(".button");
+let navLink = document.querySelectorAll(".nav__link");
+ 
 
 // 'window'--eto to na chto veshaem obrabotchik sobytija. tut konkretno na okno browsera
 window.addEventListener('scroll', function() {/* OPredelyaem sobytie:scroll */
-   var scrollPos = window.scrollY;/* HOtim opredelit poziciju skrolla: ispolzuem metod 'scrollY' */
+   let scrollPos = window.scrollY;/* HOtim opredelit poziciju skrolla: ispolzuem metod 'scrollY' */
    
    if(scrollPos > 0) {/*  esli pozicija scrollPos menshe 0, to vydaem ej etot klass */
       header.classList.add('header--dark');
@@ -28,17 +21,78 @@ window.addEventListener('scroll', function() {/* OPredelyaem sobytie:scroll */
    }
 });
 
-testBtn.addEventListener('click', function() {
-   console.log('clicked');
-});
+// testBtn.addEventListener('click', function() {
+//    console.log('clicked');
+// });
+
+// for(let navItem of navLink) {
+//    navItem.addEventListener("click", function() {
+//        console.log(navItem.text);
+//    });
+// }
+
+
+
+// navToggle (how to add/remove burger menu)
+let navToggle = $('#navToggle');
+let nav = $('.nav');
+
+   navToggle.on('click', function(event) {
+      event.preventDefault();
+
+      $(this).toggleClass('active');/* Vydaet pri klike na burger(.toggleClass) */
+      nav.toggleClass('show');
+
+      $(window).on("resize", function() {/* Esli perevernem telefon pri otkrytoj navigacii,ona sxlopne */
+         navToggle.removeClass('active');
+         nav.removeClass('show');
+      });
+   });
 
  
-for(let navItem of navLink) {
-   navItem.addEventListener("click", function() {
-       console.log(navItem.text);
-   });
-}
+   // Obrashaemsya k elementu po DATA atributu.Ih propisyvaem v ssylkah,
+   // a im daem ID#
+   $("[data-scroll").on("click", function(event) {
+      event.preventDefault();
+    
+      let scrollEl = $(this).data("scroll");
+      let scrollElPos = $(scrollEl).offset().top; /*  zdes poluchaem poziciju blokov ot verha ekrana. 
+      Bez etogo ne budet rabotat */
+    
+// Eto nuzhno,chtoby pri klike na element menu ubrat ego
+      navToggle.removeClass('active');
+      nav.removeClass('show');
+    
+    
+      $("html, body").animate({
+        scrollTop: scrollElPos - 80 /* otmotaet k etoj pozicii i minus 10px */
+      }, 400);
+      /* Nuzhno podkliuchat polnuju versiju Jquery(not Slim) else {not gonna work} */
+      });
 
-const age = 37;
+// SCROLLSPY
+let windowH = $(window).height();
 
-console.log(age);
+$(window).on("scroll", function() { /* Pri scrolle stranicy(window) my budem chto-to delat */
+/* pri scrolle nam nuzhno poluchit poziciju kazhdoj sekcii. Dlya etogo nam ponadobitsya vyborka
+elementov po DATA atributu 'data-scrollspy' */
+   let scrollTop = $(this).scrollTop(); /* Pri scrolle, my sohranyaem dannnye v etu peremennuju */
+      $("[data-scrollspy]").each(function() { /* EACH: my prohodim po KAZHDOMU data-atributu */
+
+            let $this = $(this);
+            let sectionId = $(this).data('scrollspy');
+            let sectionOffset = $this.offset().top;
+            sectionOffset = sectionOffset - (windowH * .3); /* eto nuzhno.chtoby ottectrirovat SCROLL,
+            kogda on skrolitsya k sekcii */
+
+
+            if(scrollTop >= sectionOffset) {
+               $('#nav [data-scroll]').removeClass('active');
+               $('#nav [data-scroll="#'+ sectionId +'"]').addClass('active');
+               if(scrollTop == 0) {
+                  $('#nav [data-scroll]').removeClass('active');
+                }
+            }
+      });
+
+});

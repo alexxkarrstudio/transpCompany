@@ -2,19 +2,80 @@
     position: fixed;
     top: 0;
     left: 0;
+    right: 0;
     width: 100%;
     padding: 1.5rem 0;
     z-index: 100;
-    &__wrapper {
+    &__inner {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        .logo {
+            width: 5rem;
+            transition: width .3s all;
+            display: block;
+        }
+        .burger {
+            display: none;
+            position: relative;
+            width: 30px;
+            height: 23px;
+            font-size: 0;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            &__line {
+              display: block;
+              width: 30px;
+              height: 2px;
+              background-color: #fff;
+              margin: 3px 0;
+              &:nth-child(1)  {
+                width: 20px;
+                margin-left: auto;/* korotkuju polosku otpravlyaet napravo.otstupaet ot LEFT do teh por, poka ne upretsya sprava v granicu */
+                transform-origin: right;
+                transition: width .2s ease-out;
+              }
+            }
+            &:focus {
+              outline: none;
+            }
+          }
+          .active  .burger__line:nth-child(1) {
+            width: 0%;
+            // transform: rotate(-90deg);
+            transition: width .2s ease-out;
+          }
+          .active  .burger__line:nth-child(2) {
+            transform-origin: center;
+            transform: rotate(45deg);
+            transition: .3s all;
+            position: absolute;
+            left: 0;
+            top: 50%;
+          }
+          .active  .burger__line:nth-child(3) {
+            transform: rotate(-45deg);
+            transition: .3s all;
+            position: absolute;
+            left: 0;
+            top: 50%;
+          }
+        }  
+        
+       
+       
+       
         .nav__link {
             color: #fff;    
             text-decoration: none;
             font-size: 1rem;
-            border-right: 1px dotted rgba(255, 255, 255, 0.37);
+            // border-right: 1px dotted rgba(255, 255, 255, 0.37);
             padding: 0 .9rem;
+        }
+        
+        .active {
+             color: $accent;
         }
         .nav__link:last-child {
             border: none;
@@ -37,14 +98,15 @@
             }
         }
     }
-}
+ 
 .header--dark {
     background-color: rgba(37, 51, 60, 0.9);
     transition:.3s all;
     padding: .6rem 0;
-    .logo {
-        width: 5rem;
-        transition: width .3s all;
-
-    }
+    // .logo {
+    //     width: 3rem;
+    //     transition: width .3s all;
+    //     display: block;
+    // }
+ 
 }
