@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "bootstrap": "^4.5.2",
+        "slick-carousel": "^1.8.1",
         "smooth-scroll": "^16.1.3"
     }
 }

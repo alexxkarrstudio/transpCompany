@@ -1,7 +1,7 @@
 'use strict';
 
 // Smooth scroll: https://github.com/cferdinandi/smooth-scroll
-var scroll = new SmoothScroll('a[href*="#"]');
+// var scroll = new SmoothScroll('a[href*="#"]');
 
 let header = document.querySelector("#header");
 let testBtn = document.querySelector(".button");
@@ -96,3 +96,24 @@ elementov po DATA atributu 'data-scrollspy' */
       });
 
 });
+
+// MOdal
+// znak $-obratitsya k elementu. Data atributy vsegda zapisyvaem v []. consultation-eto znachenie data-modal
+$('[data-modal=consultation]').on('click', function() {/* po clicku */
+      $('.overlay, #consultation').fadeIn('fast'); /* Obrashyaemsya k .overlay skomandoj fadeIn.
+      Takzhe mozhem podstavit liuboj nuzhnyj nam #ID */
+});
+$('[data-modal=order]').on('click', function() {/* po clicku */
+   $('.overlay, #order').fadeIn('fast'); /* Obrashyaemsya k .overlay skomandoj fadeIn.Takzhe mozhem podstavit
+    liuboj nuzhnyj nam #ID */
+});
+
+      $('.modal__close').on('click', function() {/* Pri clike na .modal__close vypolnit .fadeOut(zakryt) */
+         $('.overlay, #consultation, #order, #thanks').fadeOut('fast');
+});
+
+ 
+
+
+ 
+

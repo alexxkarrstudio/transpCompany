@@ -1,0 +1,19 @@
+.slider {
+    padding: 50px 0;
+    &__item {
+        text-align: center;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    &__name {
+        color: $accent;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.2rem;
+    }
+    &__content {
+        font-weight: 100;
+    }
+
+}

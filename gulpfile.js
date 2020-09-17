@@ -23,19 +23,23 @@ var path = {
         html: "dist/",
         js: "dist/assets/js/",
         css: "dist/assets/css/",
-        images: "dist/assets/img/"
+        images: "dist/assets/img/",
+        mailer: "dist/assets/mailer"
     },
     src: {
         html: "src/*.html",
         js: "src/assets/js/*.js",
         css: "src/assets/sass/style.scss",
-        images: "src/assets/img/**/*.{jpg,png,svg,gif,ico}"
+        images: "src/assets/img/**/*.{jpg,png,svg,gif,ico}",
+        mailer: "src/assets/mailer"
     },
     watch: {
         html: "src/**/*.html",
         js: "src/assets/js/**/*.js",
         css: "src/assets/sass/**/*.scss",
-        images: "src/assets/img/**/*.{jpg,png,svg,gif,ico}"
+        images: "src/assets/img/**/*.{jpg,png,svg,gif,ico}",
+        mailer: "src/assets/mailer"
+
     },
     clean: "./dist"
 };
@@ -115,6 +119,10 @@ function images() {
         .pipe(imagemin())
         .pipe(dest(path.build.images));
 }
+function mailer() {
+    return gulp.src("src/assets/mailer/**/* ")
+        .pipe(gulp.dest("dist/assets/mailer"));
+}
 
 function clean() {
     return del(path.clean);
@@ -127,7 +135,7 @@ function watchFiles() {
     gulp.watch([path.watch.images], images);
 }
 
-const build = gulp.series(clean, gulp.parallel(html, css, js, images));
+const build = gulp.series(clean, gulp.parallel(html, css, js, images,mailer));
 const watch = gulp.parallel(build, watchFiles, browserSync);
 
 
@@ -137,6 +145,7 @@ exports.html = html;
 exports.css = css;
 exports.js = js;
 exports.images = images;
+exports.mailer = mailer;
 exports.clean = clean;
 exports.build = build;
 exports.watch = watch;

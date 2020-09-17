@@ -1,14 +1,16 @@
 .form__title {
     font-size: 1.8rem;
     text-align: center;
-    color: #3a3a3a;
+    color: rgba(37, 51, 60, 0.7);
+
     margin-top: 3rem;
+    font-weight: 600;
 }
 
 .prices__form {
     margin-top: 3rem;
     text-align: center;
-    border: 1px solid rgba(0, 0, 0, 0.212);
+    border: 3px solid rgba(0, 0, 0, 0.05);
     padding: 2rem 0;
     input {
         border-radius: $radius;
@@ -17,7 +19,7 @@
         padding: 1rem;
         width: 274px;
         outline: none;
-        border: 1px solid rgba(0, 0, 0, 0.2);
+        border: 2px solid rgba(0, 0, 0, 0.1);
         &:focus {
             border: 1px solid $accent;
 
@@ -27,6 +29,7 @@
         display: block;
         text-align: center;
         margin: 3rem auto 0;
+        width: 208px;
     }
     .form__icon {
         display: block;

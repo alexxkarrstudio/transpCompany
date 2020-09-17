@@ -25,19 +25,15 @@
     .promo {
         .promo__descr {
             .promo__descr--unit {
-                // width: 210px;
+                margin-bottom: 3rem;
                 .promo__text {
-                    font-size: 0.8rem;
-                    padding: 0 1rem;
+                    padding: 0;
                 }
             }
         }
     }
-    .about {
-        .about__unit {
-            max-width: 300px;
-        }
-    }
+   
+     
     .prices {
         .prices__unit {
             max-width: 220px;
@@ -86,11 +82,16 @@
         }
     }
     .about {
-        .about__unit {
-            max-width: 220px;
+        .about__wrapper {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
-        .about__text {
-            font-size: 0.8rem;
+        .about__unit {
+            margin-bottom: 2rem;
+        }
+        .about__unit:last-child {
+            margin-bottom: 0;
         }
     }
     .prices {
@@ -216,15 +217,150 @@
        h3.title {
            line-height: 1.3;
        }
-    .about {
-        .about__wrapper {
+    // .about {
+    //     .about__wrapper {
+    //         flex-direction: column;
+    //         align-items: center;
+    //         justify-content: center;
+    //     }
+    //     .about__unit {
+    //         max-width: 360px;
+    //         margin-bottom: 1rem;
+    //     }
+    // }
+    .advantages {
+        .advantages__wrapper {
             flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
         }
-        .about__unit {
-            max-width: 360px;
-            margin-bottom: 1rem;
+        .advantages__unit {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 0;
+            .advantages__descr{
+                margin-left: 0;
+            }
         }
     }
+    // .button {
+    //     .button:hover {
+    //         // display: none;
+    //         border:none;
+    //         background-color: $accent;
+    //         color: #fff;
+    //         transition: none;
+    //     }
+    // }
+}
+
+@media (max-width: 575px) {
+    .overlay {
+        .modal {
+            .modal__close {
+                right: 0;
+                top: -50px;
+            }
+        }
+    }
+    .slider__item {
+        padding: 0 1rem;
+    }
+    
+}
+@media (min-width: 320px) and (max-width: 425px) {
+    .header {
+        .button {
+            display: none;
+        }
+    }
+    .promo {
+        .promo__wrapper {
+            h1.title {
+                font-size: 2rem;
+            }
+            h2.subtitle {
+                font-size: 1.2rem;
+            }
+            .promo__descr--unit {
+                width: 100%;
+                margin-bottom: 2rem;
+            }
+        }
+        
+    }
+    .advantages {
+        .advantages__wrapper {
+            .advantages__unit {
+                width: 100%;
+            }
+        }
+    }
+    .prices {
+        .form__title {
+            font-size: 1.6em;
+        }
+        .prices__form {
+            input {
+                margin-bottom: 0.2rem;
+            }
+            .button--form {
+                width: 80%;
+            }
+        }
+    }
+    .questions {
+        .prices__form {
+            input {
+                margin-bottom: 0.2rem;
+            }
+            .button--form {
+                width: 80%;
+            }
+        }
+    }
+    .footer {
+        text-align: center;
+        .button {
+            display: none;
+        }
+        .footer__contact--tel{
+            align-items: center;
+        }
+        .footer__bottom {
+            flex-direction: column;
+        }
+        .footer__inc {
+            margin-bottom: 0.2rem;
+        }
+        .footer__bottom--conf {
+            margin-bottom: 0.2rem;
+        }
+    }
+    .overlay {
+        .modal {
+            width: 290px;
+            padding: 20px;
+            top: 60%;
+            .modal__close {
+                right: 0;
+                top: -50px;
+            }
+            .feed-form {
+                width: 100%;
+                padding-left: 0;
+                input {
+                   padding: 0 10px;
+                }
+            }
+        }
+    }
+    h3.title {
+        font-size: 1.6rem;
+    }
+    h4.subtitle {
+        font-size: 1.2rem;
+    }
+    
 }
